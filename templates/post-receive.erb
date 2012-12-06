@@ -1,0 +1,22 @@
+#!/bin/sh
+
+REPO="<%= @sync_user %>@<%= @githost_fqdn %>:<%= @git_repo %>"
+DEPLOY="/etc/puppetlabs/puppet/environments"
+SSH_ARGS="-i <%= scope.lookupvar('dynenv::common::private_key') %>"
+PUPPETMASTER="<%= @sync_user %>@<%= @puppetmaster_fqdn %>"
+SYNC_COMMAND="/usr/local/bin/puppet-sync"
+
+cd ..
+env -i git reset --hard
+
+while read oldrev newrev refname
+do
+  BRANCH=`echo $refname | sed -n 's/^refs\/heads\///p'`
+  [ "$newrev" -eq 0 ] 2> /dev/null && DELETE='--delete' || DELETE=''
+
+  ssh $SSH_ARGS "$PUPPETMASTER" "$SYNC_COMMAND" \
+    --branch "$BRANCH" \
+    --repository "$REPO" \
+    --deploy "$DEPLOY" \
+    $DELETE
+done
