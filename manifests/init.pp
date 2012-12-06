@@ -29,11 +29,11 @@
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# David Gwilliam <david@puppetlabs.com>
 #
 # === Copyright
 #
-# Copyright 2011 Your name here, unless otherwise noted.
+# Copyright 2012 David Gwilliam, unless otherwise noted.
 #
 class dynenv(
   $sync_user,
