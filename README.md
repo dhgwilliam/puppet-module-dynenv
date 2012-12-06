@@ -3,9 +3,8 @@ dynenv - to manage dynamic puppet environments with git
 
 ideated and documented in a 
 [Puppet Labs blog post](http://puppetlabs.com/blog/git-workflow-and-puppet-environments/)
-and using a fork of the [puppet-sync](https://github.com/pdxcat/puppet-sync) script
-from PSU's Computer Action Team (with a minor modification that requires
-a pull request before I can switch it back to upstream, someone remind me to do this)
+and using the [puppet-sync](https://github.com/pdxcat/puppet-sync) script
+from PSU's Computer Action Team
 
 *NB: there are other people out there hacking on Dynamic Environments,
 so when their blogs are back up we should add a link to the relevant
