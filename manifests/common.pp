@@ -32,9 +32,10 @@ class dynenv::common {
   }
 
   file { $private_key:
-    ensure => present,
-    owner  => $::dynenv::sync_user,
-    mode   => '0600',
+    ensure  => present,
+    owner   => $::dynenv::sync_user,
+    mode    => '0600',
+    require => Exec['ssh-keygen'],
   }
 
   @@ssh_authorized_key { "${::fqdn}-puppet-sync_pubkey":
