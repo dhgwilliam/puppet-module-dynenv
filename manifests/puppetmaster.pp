@@ -12,7 +12,7 @@ class dynenv::puppetmaster {
     require => Vcsrepo['/usr/local/src/puppet-sync'],
   }
 
-  file { $::dynenv::env_dir: 
+  file { $::dynenv::env_dir:
     ensure => directory,
     owner  => $::puppet_user,
     group  => $::dynenv::sync_user,
