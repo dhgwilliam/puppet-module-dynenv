@@ -16,6 +16,6 @@ class dynenv::puppetmaster {
     ensure => directory,
     owner  => $::puppet_user,
     group  => $::dynenv::sync_user,
-    mode   => '2770',
+    mode   => '2775',
   }
 }
