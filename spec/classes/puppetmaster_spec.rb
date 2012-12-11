@@ -14,7 +14,15 @@ describe 'dynenv', :type => :class do
       let (:node) { 'puppetmaster.puppetlabs.test' }
 
       it { should include_class('dynenv::puppetmaster') }
-    end
 
+      it :type => :vcsrepo do
+        should contain_vcsrepo('/usr/local/src/puppet-sync').with(
+            'ensure'   => 'present',
+            'provider' => 'git',
+            'source'   => 'https://github.com/pdxcat/puppet-sync.git',
+            'revision' => '9f7952a8ed707e0210279c783f3c2fc884bf9b08'
+        )
+      end
+    end
   end
 end
