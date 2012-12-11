@@ -15,7 +15,7 @@ class dynenv::puppetmaster {
   file { $::dynenv::env_dir:
     ensure => directory,
     owner  => $::puppet_user,
-    group  => $::dynenv::sync_user,
+    group  => $::puppet_group,
     mode   => '2770',
   }
 }
