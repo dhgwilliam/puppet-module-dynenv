@@ -1,9 +1,4 @@
 class dynenv::common {
-  if $::osfamily == 'RedHat' {
-    include epel
-    package { 'git': ensure => latest, }
-  }
-
   $home_dir = "/var/lib/${::dynenv::sync_user}"
   $private_key = "${home_dir}/.ssh/id_rsa"
   
