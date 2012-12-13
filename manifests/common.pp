@@ -36,12 +36,17 @@ class dynenv::common {
   @@ssh_authorized_key { "${::fqdn}-puppet-sync_pubkey":
     type => 'ssh-rsa',
     key  => $::puppet_sync_pubkey,
-    user => 'puppet-sync'
+    user => 'puppet-sync',
+    tag  => 'dynenv_host_key',
   }
-  Ssh_authorized_key <<| |>>
+  Ssh_authorized_key <<| tag == 'dynenv_host_key' |>>
 
-  @@sshkey { $::fqdn: type => 'rsa', key => $::sshrsakey, } 
-  Sshkey <<| |>>
+  @@sshkey { $::fqdn:
+    type => 'rsa',
+    key  => $::sshrsakey,
+    tag  => 'dynenv_ssh_key',
+  }
+  Sshkey <<| tag == 'dynenv_ssh_key' |>>
 
   file {'/etc/ssh/ssh_known_hosts':
     ensure => file,
