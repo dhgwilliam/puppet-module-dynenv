@@ -1,4 +1,6 @@
 class dynenv::puppetmaster {
+  include dynenv::common
+
   vcsrepo { '/usr/local/src/puppet-sync':
     ensure   => present,
     provider => git,

@@ -2,6 +2,8 @@ class dynenv::githost inherits dynenv {
   # you'll probably want to set
   # git config core.sharedRepository true
 
+  include dynenv::common
+
   file { $::dynenv::git_repo:
     ensure => directory,
     owner => $repo_owner,

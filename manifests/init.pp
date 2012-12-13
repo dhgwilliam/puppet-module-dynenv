@@ -44,8 +44,6 @@ class dynenv(
   $repo_group = $sync_user,
   $env_dir = '/etc/puppet/environments'
 ) {
-  include dynenv::common
-
   case $::fqdn {
     $puppetmaster_fqdn: { include dynenv::puppetmaster }
     $githost_fqdn: { include dynenv::githost }
