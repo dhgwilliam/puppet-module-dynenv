@@ -10,6 +10,16 @@ from PSU's Computer Action Team
 so when their blogs are back up we should add a link to the relevant
 post*
 
+
+Dependencies
+---
+
+In order for this to work, you must have reasonably configured the
+following tools:
+* git
+* ruby (available in the PATH)
+
+
 Sample Usage
 ---
 
@@ -49,11 +59,8 @@ the module explicitly does not manage the modules repo for you, so when
 creating a new git_host, you must either copy an existing repo or create
 a bare one with `git init .`
 
-You must manually alter the puppetmaster's puppet.conf to actually enable the
+You **must** manually alter the puppetmaster's puppet.conf to actually enable the
 dynamic environments, this only lays out the filesystem foundation.
-
-git is currently only installed on RedHat boxes, and this requires
-installing EPEL. other OSes could very easily be added.
 
 I'd imagine there are some other assumptions contained herein that are
 undocumented.
