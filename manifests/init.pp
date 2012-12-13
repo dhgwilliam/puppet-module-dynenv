@@ -40,9 +40,10 @@ class dynenv(
   $puppetmaster_fqdn,
   $githost_fqdn,
   $git_repo,
-  $repo_owner = $sync_user,
-  $repo_group = $sync_user,
-  $env_dir = '/etc/puppet/environments'
+  $repo_owner   = $sync_user,
+  $repo_group   = $sync_user,
+  $env_dir      = '/etc/puppet/environments',
+  $local_prefix = '/usr/local'
 ) {
   case $::fqdn {
     $puppetmaster_fqdn: { include dynenv::puppetmaster }
