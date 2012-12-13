@@ -15,9 +15,12 @@ Dependencies
 ---
 
 In order for this to work, you must have reasonably configured the
-following tools:
+following tools, preferably on both boxes:
 * git
 * ruby (available in the PATH)
+
+You also must have `storeconfigs = true` enabled in your puppetmaster's
+puppet.conf
 
 
 Sample Usage
