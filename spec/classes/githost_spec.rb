@@ -13,7 +13,14 @@ describe 'dynenv', :type => :class do
     context '$::fqdn matches githost_fqdn' do
       let (:node) { 'githost.puppetlabs.test' }
 
-      it { should include_class('dynenv::githost') }
+      it { should contain_class('dynenv::githost') }
+
+      it { should contain_file('/var/lib/git/environments').with(
+        'ensure' => 'directory',
+        'owner'  => 'puppet-sync',
+        'group'  => 'puppet-sync',
+        'mode'   => '2770'
+      ) }
     end
 
   end
